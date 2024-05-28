@@ -3,10 +3,10 @@ class RnaTranscription {
     String transcribe(String dnaStrand) {
         StringBuilder result = new StringBuilder();
 
-        for(int i=0; i < dnaStrand.length(); i++){
-            char c = dnaStrand.charAt(i);
+        for(int index=0; index < dnaStrand.length(); index++){
+            char presentCharacter = dnaStrand.charAt(index);
 
-            switch (c){
+            switch (presentCharacter){
                 case 'G':
                     result.append('C');
                     break;
@@ -20,7 +20,7 @@ class RnaTranscription {
                     result.append("U");
                     break;
                 default:
-                    result.append(c);
+                    result.append(presentCharacter);
                     break;
             }
         }

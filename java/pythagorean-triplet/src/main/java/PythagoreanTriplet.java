@@ -3,14 +3,14 @@ import java.util.List;
 
 class PythagoreanTriplet {
 
-    private int a;
-    private int b;
-    private int c;
+    private int number1;
+    private int number2;
+    private int number3;
 
-    PythagoreanTriplet(int a, int b, int c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    PythagoreanTriplet(int number1, int number2, int number3) {
+        this.number1 = number1;
+        this.number2 = number2;
+        this.number3 = number3;
     }
 
     @Override
@@ -18,7 +18,7 @@ class PythagoreanTriplet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PythagoreanTriplet that = (PythagoreanTriplet) o;
-        return a == that.a && b == that.b && c == that.c;
+        return number1 == that.number1 && number2 == that.number2 && number3 == that.number3;
     }
 
     static TripletListBuilder makeTripletsList() {
@@ -46,14 +46,14 @@ class PythagoreanTriplet {
         }
 
         private void findAllValidTriplets(List<PythagoreanTriplet> list) {
-            for(int a = 1; a <= sum/3; a++){
-                if(a <= max_factor){
-                    for(int b = a+1; b <= sum/2; b++){
-                        if(b <= max_factor){
-                            int c = sum-a-b;
-                            if(c <= max_factor){
-                                if(isPythagoreanTriplet(a, b, c)){
-                                    list.add(new PythagoreanTriplet(a,b,c));
+            for(int number1 = 1; number1 <= sum/3; number1++){
+                if(number1 <= max_factor){
+                    for(int number2 = number1+1; number2 <= sum/2; number2++){
+                        if(number2 <= max_factor){
+                            int number3 = sum-number1-number2;
+                            if(number3 <= max_factor){
+                                if(isPythagoreanTriplet(number1, number2, number3)){
+                                    list.add(new PythagoreanTriplet(number1,number2,number3));
                                 }
                             }
                         }
@@ -62,8 +62,8 @@ class PythagoreanTriplet {
             }
         }
 
-        private boolean isPythagoreanTriplet(int a, int b, int c) {
-            return a*a + b*b == c*c;
+        private boolean isPythagoreanTriplet(int number1, int number2, int number3) {
+            return number1*number1 + number2*number2 == number3*number3;
         }
 
     }
